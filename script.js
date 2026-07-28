@@ -20,3 +20,36 @@ items.forEach(item => {
 document.addEventListener('click', () => {
     menu.classList.remove('open');
 });
+
+
+
+
+const track = document.getElementById('carousel');
+const slides = track.querySelectorAll('.bgimg');
+let index = 0;
+let timer;
+
+function goTo(i) {
+  index = (i + slides.length) % slides.length;
+  track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+}
+
+function startAutoplay() {
+  clearInterval(timer);
+  timer = setInterval(() => goTo(index + 1), 4000); 
+}
+
+document.getElementById('rightsidebtn').addEventListener('click', () => {
+  goTo(index + 1);
+  startAutoplay(); 
+});
+document.getElementById('leftsidebtn').addEventListener('click', () => {
+  goTo(index - 1);
+  startAutoplay();
+});
+
+track.addEventListener('scroll', () => {
+  index = Math.round(track.scrollLeft / track.clientWidth);
+});
+
+startAutoplay();

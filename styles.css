@@ -3,6 +3,7 @@
   * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: sans-serif;
   }
 
@@ -104,10 +105,7 @@
       color: black;
   }
 
-  /* #ddIcon:hover {
-      fill: black;
-  }
-   */
+
   .dropdown-menu {
       display: none;
       position: absolute;
@@ -115,15 +113,15 @@
       left: 0;
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 4px;
-      /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
-      min-width: 220px;
-      max-height: 320px;
+      max-height: 442px;
+      width: 180px;
       overflow-y: auto;
       z-index: 100;
       list-style: none;
       margin: 0;
       padding: 6px 0;
+      scrollbar-width: auto;
+      scrollbar-color: auto;
   }
 
   .dropdown-menu.open {
@@ -131,7 +129,7 @@
   }
 
   .dropdown-item {
-      padding: 8px 16px;
+      padding: 5px 6px;
       font-size: 13px;
       color: #333;
       cursor: pointer;
@@ -141,19 +139,6 @@
   .dropdown-item:focus {
       background-color: #787676;
       color: white;
-  }
-
-  .dropdown-menu::-webkit-scrollbar {
-      width: 8px;
-  }
-
-  .dropdown-menu::-webkit-scrollbar-thumb {
-      background: #787676;
-      border-radius: 4px;
-  }
-
-  .dropdown-menu::-webkit-scrollbar-track {
-      background: transparent;
   }
 
   #textArea {
@@ -186,27 +171,6 @@
       border-color: #fff;
   }
 
-  .lang-panel {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      background: #fff;
-      border-radius: 6px;
-      /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); */
-      width: 280px;
-      padding: 16px 0;
-      z-index: 200;
-      color: #111;
-      font-size: 14px;
-      cursor: default;
-  }
-
-  .lang:hover .lang-panel,
-  .lang-panel:hover {
-      display: block;
-  }
-
   .lan {
       margin: 15px 2px 0px 2px;
   }
@@ -221,16 +185,15 @@
       margin-right: 6px;
   }
 
-
-
   .lang-panel {
+    display: none;
       position: absolute;
       top: calc(100% + 10px);
       left: 0;
       background: #fff;
       border-radius: 3px;
       width: 220px;
-      max-height: 67vh;
+      max-height: 70vh;
       padding: 12px 0;
       z-index: 200;
       color: #111;
@@ -313,38 +276,39 @@
       font-size: 12.5px;
   }
 
-  
+
   .see-all-link {
       display: inline-block;
       margin-top: 3px;
       color: #007185;
       font-size: 12px;
       text-decoration: none;
-    }
-    
-    .see-all-link:hover {
-        text-decoration: underline;
-        color: #c45500;
-    }
-    
-    .panel-divider {
-        height: 1px;
-        background: #e7e7e7;
-        margin: 8px 0;
-    }
-    
-    .radio-row:hover {
-        text-decoration: underline;
-        color: #eb6e0e;
-    }
-    .panel-footer {
-        padding: 0 16px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 5px;
-        font-size: 12px;
-        color: #333;
+  }
+
+  .see-all-link:hover {
+      text-decoration: underline;
+      color: #c45500;
+  }
+
+  .panel-divider {
+      height: 1px;
+      background: #e7e7e7;
+      margin: 8px 0;
+  }
+
+  .radio-row:hover {
+      text-decoration: underline;
+      color: #eb6e0e;
+  }
+
+  .panel-footer {
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: #333;
   }
 
   .change-region-link {
@@ -370,7 +334,7 @@
   }
 
   .signinpannel {
-      display: none; 
+      display: none;
       position: absolute;
       top: calc(100% + 10px);
       right: 0px;
@@ -378,7 +342,7 @@
       background: #fcf9f9;
       border-radius: 3px;
       width: 460px;
-      height: 405px;
+      height: 430px;
       padding: 12px 0;
       z-index: 200;
       color: #111;
@@ -404,9 +368,6 @@
       display: block;
   }
 
-  /* .sign {
-      background-color: #232f3e;
-  } */
 
   #signinbtn {
       margin-left: 131px;
@@ -456,15 +417,16 @@
 
   .columnpanel-divider {
       height: 316px;
-    width: 2px;
-    background: #b9b4b5;
-    margin: 8px 0;
+      width: 2px;
+      background: #e7e7e7;
+      margin: 8px 0;
   }
+
   .rowpanel-divider {
-         height: 1px;
-    width: 445px;
-    background: #b9b4b5;
-    margin: 8px;
+      height: 1px;
+      width: 445px;
+      background: #e7e7e7;
+      margin: 8px;
   }
 
   .youraccount {
@@ -505,4 +467,50 @@
 
   .ul2Fonts {
       font-size: 15px;
+  }
+
+
+
+
+
+
+
+  .bgcontainer {
+      position: absolute;
+      display: flex;
+      overflow-x: auto;
+      height: 545px;
+      width: 100vw;
+      background-color: #949494;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+  }
+
+  .bgimg {
+      flex: 1 0 100%;
+      position: relative;
+      object-fit: cover;
+      scroll-snap-align: start;
+      scroll-behavior: smooth;
+  }
+
+  .sidebtn {
+      position: fixed;
+
+  }
+
+  #leftsidebtn {
+      background: none;
+      border: none;
+      position: fixed;
+      top: 207px;
+      left: 23px;
+  }
+
+  #rightsidebtn {
+      background: none;
+      border: none;
+      position: fixed;
+      right: 23px;
+      top: 207px;
   }
