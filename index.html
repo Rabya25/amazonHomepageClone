@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Homepage Replica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="ul1">
+                <li><embed class="logo" src="amazon-media/amazon-logo.svg"></li>
+                <li>
+                    <div class="deliv h">
+                        <div class="deliveryIcon"><embed src="amazon-media/location-icon.svg"></div>
+                        <div class="deliveryTxt">
+                            <div class="txt1">Deliver to</div>
+                            <div class="txt2">Pakistan</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="search-bar">
+                        <div class="searchList" id="ddTrigger">
+                            <span id="selectedValue">All</span>
+                            <img src="amazon-media/dropdown-icon.svg" id="ddIcon" alt="">
+                            <ul class="dropdown-menu" id="ddMenu">
+                                <li class="dropdown-item" data-value="All Departments">All Departments</li>
+                                <li class="dropdown-item" data-value="Arts & Crafts">Arts & Crafts</li>
+                                <li class="dropdown-item" data-value="Automotive">Automotive</li>
+                                <li class="dropdown-item" data-value="Baby">Baby</li>
+                                <li class="dropdown-item" data-value="Beauty & Personal Care">Beauty & Personal Care
+                                </li>
+                                <li class="dropdown-item" data-value="Books">Books</li>
+                                <li class="dropdown-item" data-value="Boys' Fashion">Boys' Fashion</li>
+                                <li class="dropdown-item" data-value="Computers">Computers</li>
+                                <li class="dropdown-item" data-value="Deals">Deals</li>
+                                <li class="dropdown-item" data-value="Digital Music">Digital Music</li>
+                                <li class="dropdown-item" data-value="Electronics">Electronics</li>
+                                <li class="dropdown-item" data-value="Girls' Fashion">Girls' Fashion</li>
+                                <li class="dropdown-item" data-value="Health & Household">Health & Household</li>
+                                <li class="dropdown-item" data-value="Home & Kitchen">Home & Kitchen</li>
+                                <li class="dropdown-item" data-value="Industrial & Scientific">Industrial & Scientific
+                                </li>
+                                <li class="dropdown-item" data-value="Kindle Store">Kindle Store</li>
+                                <li class="dropdown-item" data-value="Luggage">Luggage</li>
+                                <li class="dropdown-item" data-value="Men's Fashion">Men's Fashion</li>
+                                <li class="dropdown-item" data-value="Movies & TV">Movies & TV</li>
+                                <li class="dropdown-item" data-value="Music, CDs & Vinyl">Music, CDs & Vinyl</li>
+                            </ul>
+                        </div>
+
+                        <input type="text" id="textArea" placeholder="Search Amazon">
+                        <button class="searchIcon"><embed src="amazon-media/searchbar-icon.svg"></button>
+                    </div>
+
+                </li>
+
+                <li>
+                    <div class="lang h" id="langTrigger" tabindex="0">
+                        <div class="lan"><embed src="amazon-media/americanflag-icon.svg"></div>
+                        <div class="lan lanEn">EN</div>
+                        <div class="lanDd"><embed src="amazon-media/dropdown-icon.svg"></div>
+
+                        <div class="lang-panel" id="langPanel">
+                            <div class="panel-section">
+                                <p class="section-title">Change language</p>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="en" checked>
+                                    <span>English - EN</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="es">
+                                    <span>español - ES</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="ar">
+                                    <span>العربية - AR</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="de">
+                                    <span>Deutsch - DE</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="he">
+                                    <span>עברית - HE</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="ko">
+                                    <span>한국어 - KO</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="pt">
+                                    <span>português - PT</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="zh-cn">
+                                    <span>中文(简体) - ZH</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="language" value="zh-tw">
+                                    <span>中文(繁體) - ZH</span>
+                                </label>
+                            </div>
+
+                            <div class="panel-divider"></div>
+
+                            <div class="panel-section">
+                                <p class="section-title">Change currency</p>
+                                <label class="radio-row">
+                                    <input type="radio" name="currency" value="pkr" checked>
+                                    <span>PKR - Pakistani Rupee</span>
+                                </label>
+                                <label class="radio-row">
+                                    <input type="radio" name="currency" value="usd">
+                                    <span>$ - US Dollar</span>
+                                </label>
+                                <a href="#" class="see-all-link">See all</a>
+                            </div>
+
+                            <div class="panel-divider"></div>
+
+                            <div class="panel-footer">
+                                <embed src="amazon-media/americanflag-icon.svg" class="flag-icon-small">
+                                <span>You are shopping on Amazon.com</span>
+                                <a href="#" class="change-region-link">Change country/region.</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="signin h" id="signinTrigger" tabindex="0">
+                        <div class="txt1">Hello, sign in</div>
+                        <div class="accTxt">
+                            <div class="txt2">Account & Lists</div>
+                            <div><embed src="amazon-media/dropdown-icon.svg"></div>
+
+                            <div class="signinpannel">
+                                <div class="sign">
+                                    <button id="signinbtn">Sign in</button>
+                                    <p>New customer? <a href="#">Start here</a></p>
+
+                                    <div class="signinlist">
+                                        <div class="yourlist"> <p>Your Lists</p> 
+                                          
+                                             <a href="#">Create a List</a>
+                                             <a href="#">Find a List or Registry</a>
+                                        </div>
+                                        <div class="youraccount"> <p>Your Account</p>                                           
+                                            <a href="#">Account</a>
+                                            <a href="#">Orders</a>
+                                            <a href="#">Recommendations</a>
+                                            <a href="#">Browsing History</a>
+                                            <a href="#">Your Shopping preferences</a>
+                                            <a href="#">Watchlist</a>
+                                            <a href="#">Video Purchases & Rentals</a>
+                                            <a href="#">Kindle Unlimited</a>
+                                            <a href="#">Content & Devices</a>
+                                            <a href="#">Subscribe & Save Items</a>
+                                            <a href="#">Memberships & Subscriptions</a>
+                                            <a href="#">Music Library</a>
+                                        </div>
+                                    </div>    
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                </li>
+                <li>
+                    <div class="return h">
+                        <div class="txt1">Returns</div>
+                        <div class="txt2">& Orders</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="cart h">
+                        <embed src="amazon-media/cart-icon.svg">
+                        <div class="txt2 carttxt">Cart</div>
+                    </div>
+
+                </li>
+            </ul>
+
+
+            <ul class="ul2">
+                <li>
+                    <div class="ul2Dd h">
+                        <embed src="amazon-media/hamburger-icon.svg" class="ham-icon">
+                        <div class="ulDdtxt">All</div>
+                    </div>
+                </li>
+                <li class="ul2Fonts h">Today's Deals</li>
+                <li class="ul2Fonts h">Prime Video</li>
+                <li class="ul2Fonts h">Gift Cards</li>
+                <li class="ul2Fonts h">Sell</li>
+                <li class="ul2Fonts h">Customer Services</li>
+                <li class="ul2Fonts h">Registry</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
