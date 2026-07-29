@@ -53,3 +53,17 @@ track.addEventListener('scroll', () => {
 });
 
 startAutoplay();
+
+
+const triggers = document.querySelectorAll('[data-trigger]');
+const overlay = document.getElementById('pageOverlay');
+
+triggers.forEach(trigger => {
+    trigger.addEventListener('mouseenter', () => {
+        overlay.classList.add('active');
+    });
+
+    trigger.addEventListener('mouseleave', () => {
+        overlay.classList.remove('active');
+    });
+});

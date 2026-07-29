@@ -7,8 +7,19 @@
       font-family: sans-serif;
   }
 
+  body {
+      background-color: #c7c7c7;
+      overflow-x: hidden;
+      max-width: 100vw;
+  }
+
 
   .ul1 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 300;
       background-color: #131921;
       display: flex;
       height: 60px;
@@ -65,7 +76,7 @@
   .search-bar {
       height: 40px;
       width: 100%;
-      max-width: 48vw;
+      max-width: 46vw;
       flex-shrink: 1;
       border-radius: 5px;
       display: flex;
@@ -73,17 +84,13 @@
       background-color: white;
       color: grey;
       justify-content: space-between;
+
   }
 
   .search-bar:active {
       outline: 2px solid #f8a83f;
   }
 
-  @media screen and (max-width:1200px) {
-      .search-bar {
-          width: 36vw;
-      }
-  }
 
 
   .searchList {
@@ -142,19 +149,31 @@
   }
 
   #textArea {
-      width: 80vw;
+      width: 77vw;
+      flex: 1;
+      min-width: 0;
       padding: 6px;
       outline: none;
       border: none;
   }
 
   .searchIcon {
-      width: 128px;
+      width: 83px;
       height: 40px;
       border: none;
       padding: 5px;
       background-color: #febd69;
       border-radius: 0px 5px 5px 0px;
+  }
+
+  @media screen and (max-width:1200px) {
+      .search-bar {
+          width: 31vw;
+      }
+
+      .searchIcon {
+          width: 52px;
+      }
   }
 
   .searchIcon:hover {
@@ -186,7 +205,7 @@
   }
 
   .lang-panel {
-    display: none;
+      display: none;
       position: absolute;
       top: calc(100% + 10px);
       left: 0;
@@ -449,6 +468,7 @@
       background-color: #232f3e;
       display: flex;
       height: 39px;
+      margin-top: 60px;
   }
 
   .ul2Dd {
@@ -469,48 +489,121 @@
       font-size: 15px;
   }
 
+  .page-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 150;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+  }
 
+  .page-overlay.active {
+      opacity: 1;
+      visibility: visible;
+  }
 
-
+  .lang-panel,
+  .signinpannel,
+  .cart-panel {
+      z-index: 200;
+  }
 
 
 
   .bgcontainer {
-      position: absolute;
       display: flex;
       overflow-x: auto;
       height: 545px;
-      width: 100vw;
-      background-color: #949494;
+      width: 100%;
+      background-color: #c7c7c7;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
   }
 
-  .bgimg {
+  .bgslide {
       flex: 1 0 100%;
       position: relative;
-      object-fit: cover;
       scroll-snap-align: start;
-      scroll-behavior: smooth;
   }
 
+  .bgimg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+      -webkit-mask-image: linear-gradient(to bottom,
+              black 0%,
+              black 75%,
+              transparent 100%);
+      mask-image: linear-gradient(to bottom,
+              black 0%,
+              black 75%,
+              transparent 100%);
+  }
+
+
+
+
+
+
+
   .sidebtn {
-      position: fixed;
+      position: static;
 
   }
 
   #leftsidebtn {
       background: none;
       border: none;
-      position: fixed;
-      top: 207px;
+      position: absolute;
+      top: 106px;
       left: 23px;
+      z-index: 10;
   }
 
   #rightsidebtn {
       background: none;
       border: none;
-      position: fixed;
+      position: absolute;
       right: 23px;
-      top: 207px;
+      top: 106px;
   }
+
+  .mainsec {
+      position: relative;
+
+  }
+
+  .main-pannel {
+      position: relative;
+      height: 835px;
+      overflow-y: clip;
+      margin: -298px 0px 0px 8px;
+  }
+
+
+  .pannelCard {
+      position: relative;
+      height: 400px;
+      width: 312px;
+      margin-left: 14px;
+      margin-bottom: 14px;
+      background-color: white;
+      display: -webkit-inline-box;
+  }
+
+  @media screen and (max-width: 1300px) {
+      .pannelCard {
+          width: 313px;
+      }
+  }
+
+
+
+
+
+

@@ -60,7 +60,7 @@
                 </li>
 
                 <li>
-                    <div class="lang h" id="langTrigger" tabindex="0">
+                    <div class="lang h" id="langTrigger" tabindex="0" data-trigger>
                         <div class="lan"><embed src="amazon-media/americanflag-icon.svg"></div>
                         <div class="lan lanEn">EN</div>
                         <div class="lanDd"><embed src="amazon-media/dropdown-icon.svg"></div>
@@ -132,7 +132,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="signin h" id="signinTrigger" tabindex="0">
+                    <div class="signin h" id="signinTrigger" tabindex="0" data-trigger>
                         <div class="txt1">Hello, sign in</div>
                         <div class="accTxt">
                             <div class="txt2">Account & Lists</div>
@@ -221,55 +221,70 @@
         </nav>
     </header>
     <main>
-        <div class="mainBg">
+        <div class="mainsec">
             <div class="bgcontainer" id="carousel">
 
-                <img class="bgimg1 bgimg" src="amazon-media/619geyiQI5L._SX3000_.jpg" alt="1">
-                <img class="bgimg2 bgimg" src="amazon-media/61Yx5-N155L._SX3000_.jpg" alt="2">
-                <img class="bgimg3 bgimg" src="amazon-media/71qcoYgEhzL._SX3000_.jpg" alt="3">
-                <img class="bgimg4 bgimg" src="amazon-media/71ROLBmB4AL._SX3000_.jpg" alt="4">
-
-                <div class="sidebtn">
-                    <button id="leftsidebtn"><svg width="33px" height="40px" viewBox="0 0 41.346 75.803"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="Merged_Shape">
-                                <g id="Group_left" transform="translate(-625.7 -383.588)">
-                                    <path
-                                        d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
-                                        fill="#000000" />
-                                </g>
-                                <g id="Group_right" transform="translate(-620.027 -383.588)">
-                                    <path
-                                        d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
-                                        fill="#ffffff" />
-                                </g>
-                            </g>
-                        </svg></button>
-
-                    <button id="rightsidebtn"><svg width="33px" height="40px" viewBox="0 0 41.346 75.803"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="Merged_Shape" transform="translate(41.346,0) scale(-1,1)">
-                                <g id="Group_left" transform="translate(-625.7 -383.588)">
-                                    <path
-                                        d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
-                                        fill="#000000" />
-                                </g>
-                                <g id="Group_right" transform="translate(-620.027 -383.588)">
-                                    <path
-                                        d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
-                                        fill="#ffffff" />
-                                </g>
-                            </g>
-                        </svg>
+                <div class="bgslide"> <img class="bgimg1 bgimg" src="amazon-media/619geyiQI5L._SX3000_.jpg" alt="1">
+                </div>
+                <div class="bgslide"> <img class="bgimg2 bgimg" src="amazon-media/61Yx5-N155L._SX3000_.jpg" alt="2">
+                </div>
+                <div class="bgslide"> <img class="bgimg3 bgimg" src="amazon-media/71qcoYgEhzL._SX3000_.jpg" alt="3">
+                </div>
+                <div class="bgslide"><img class="bgimg4 bgimg" src="amazon-media/71ROLBmB4AL._SX3000_.jpg" alt="4">
                 </div>
             </div>
+
+            <div class="sidebtn">
+                <button id="leftsidebtn"><svg width="33px" height="40px" viewBox="0 0 41.346 75.803"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="Merged_Shape">
+                            <g id="Group_left" transform="translate(-625.7 -383.588)">
+                                <path
+                                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                                    fill="#000000" />
+                            </g>
+                            <g id="Group_right" transform="translate(-620.027 -383.588)">
+                                <path
+                                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                                    fill="#ffffff" />
+                            </g>
+                        </g>
+                    </svg></button>
+
+                <button id="rightsidebtn"><svg width="33px" height="40px" viewBox="0 0 41.346 75.803"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="Merged_Shape" transform="translate(41.346,0) scale(-1,1)">
+                            <g id="Group_left" transform="translate(-625.7 -383.588)">
+                                <path
+                                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                                    fill="#000000" />
+                            </g>
+                            <g id="Group_right" transform="translate(-620.027 -383.588)">
+                                <path
+                                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                                    fill="#ffffff" />
+                            </g>
+                        </g>
+                    </svg>
+            </div>
+            <div class="main-pannel">
+                <div class="students  pannelCard"></div>
+                <div class="games  pannelCard"></div>
+                <div class="fashion  pannelCard"></div>
+                <div class="school  pannelCard"></div>
+                <div class="home  pannelCard"></div>
+                <div class="kitchen  pannelCard"></div>
+                <div class="ftrends  pannelCard"></div>
+                <div class="elevatedspaces  pannelCard"></div>
+            </div>
         </div>
+        <div class="page-overlay" id="pageOverlay"></div>
 
     </main>
     <footer>
 
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
