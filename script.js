@@ -1,27 +1,24 @@
-const trigger = document.getElementById('ddTrigger');
+const ddTrigger = document.getElementById('ddTrigger');
 const menu = document.getElementById('ddMenu');
 const selectedValue = document.getElementById('selectedValue');
 const items = menu.querySelectorAll('.dropdown-item');
 
-
-trigger.addEventListener('click', (e) => {
-    menu.classList.toggle('open');
-    e.stopPropagation();
+ddTrigger.addEventListener('click', (e) => {
+  menu.classList.toggle('open');
+  e.stopPropagation();
 });
 
 items.forEach(item => {
-    item.addEventListener('click', (e) => {
-        selectedValue.textContent = item.dataset.value;
-        menu.classList.remove('open');
-        e.stopPropagation();
-    });
+  item.addEventListener('click', (e) => {
+    selectedValue.textContent = item.dataset.value;
+    menu.classList.remove('open');
+    e.stopPropagation();
+  });
 });
 
 document.addEventListener('click', () => {
-    menu.classList.remove('open');
+  menu.classList.remove('open');
 });
-
-
 
 
 const track = document.getElementById('carousel');
@@ -36,12 +33,12 @@ function goTo(i) {
 
 function startAutoplay() {
   clearInterval(timer);
-  timer = setInterval(() => goTo(index + 1), 4000); 
+  timer = setInterval(() => goTo(index + 1), 4000);
 }
 
 document.getElementById('rightsidebtn').addEventListener('click', () => {
   goTo(index + 1);
-  startAutoplay(); 
+  startAutoplay();
 });
 document.getElementById('leftsidebtn').addEventListener('click', () => {
   goTo(index - 1);
@@ -55,15 +52,60 @@ track.addEventListener('scroll', () => {
 startAutoplay();
 
 
-const triggers = document.querySelectorAll('[data-trigger]');
-const overlay = document.getElementById('pageOverlay');
+const hoverTriggers = document.querySelectorAll('[data-trigger]');
+const pageOverlay = document.getElementById('pageOverlay');
 
-triggers.forEach(trigger => {
-    trigger.addEventListener('mouseenter', () => {
-        overlay.classList.add('active');
-    });
+hoverTriggers.forEach(t => {
+  t.addEventListener('mouseenter', () => pageOverlay.classList.add('active'));
+  t.addEventListener('mouseleave', () => pageOverlay.classList.remove('active'));
+});
 
-    trigger.addEventListener('mouseleave', () => {
-        overlay.classList.remove('active');
-    });
+
+const menuTrigger = document.getElementById('menuTrigger');
+const sideMenu = document.getElementById('sideMenu');
+const sideMenuOverlay = document.getElementById('pageOverlay');
+const closeBtn = document.getElementById('closeBtn');
+
+function openMenu() {
+  sideMenu.classList.add('open');
+  sideMenuOverlay.classList.add('active', 'menu-active'); 
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  sideMenu.classList.remove('open');
+  sideMenuOverlay.classList.remove('active', 'menu-active'); 
+  document.body.style.overflow = '';
+}
+
+menuTrigger.addEventListener('click', openMenu);
+sideMenuOverlay.addEventListener('click', closeMenu);
+closeBtn.addEventListener('click', closeMenu);
+
+
+document.querySelectorAll('.see-all').forEach(btn => {
+  const extra = btn.previousElementSibling;
+  btn.addEventListener('click', () => {
+    const isOpen = extra.classList.toggle('expanded');
+    btn.classList.toggle('expanded', isOpen);
+    btn.firstChild.textContent = isOpen ? 'See less ' : 'See all ';
+  });
+});
+
+
+const sliderWrappers = document.querySelectorAll('.slider-wrapper');
+
+sliderWrappers.forEach(wrapper => {
+    const track = wrapper.querySelector('.product-track');
+    const prevBtn = wrapper.querySelector('.prev-btn');
+    const nextBtn = wrapper.querySelector('.next-btn');
+
+    if (track && prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: 600, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -600, behavior: 'smooth' });
+        });
+    }
 });
