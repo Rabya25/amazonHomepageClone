@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Homepage Replica</title>
+    <style>
+        :root {
+            --navy: #232f3e;
+            --navy2: #232f3e;
+            --yellow: #febd69;
+            --yellow-dark: #e0a73b;
+            --link: #007185;
+            --link-hover: #c45500;
+            --text: #0F1111;
+            --bg: #e7e9eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Amazon Ember", Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            /* background: var(--bg); */
+            color: var(--text);
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .top-header {
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            height: 52px;
+            padding: 10px 12px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--yellow);
+        }
+
+        .top-header .spacer {
+            flex: 1;
+        }
+
+        .cart-wrap {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .search-row {
+            background: var(--navy);
+            padding: 0 12px 10px;
+            display: flex;
+        }
+
+        .search-bar {
+            flex: 1;
+            display: flex;
+            height: 38px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            width: 42px;
+            border: none;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .search-bar button:active {
+            background: var(--yellow-dark);
+        }
+
+        .nav-strip {
+            background: var(--navy2);
+            display: flex;
+            gap: 22px;
+            overflow-x: auto;
+            padding: 10px 12px;
+            scrollbar-width: none;
+            color: #fff;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .nav-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-strip a {
+            opacity: .95;
+        }
+
+        .deliver-strip {
+            background: #37475a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            padding: 9px 14px;
+            font-size: 10px;
+            border: none;
+            border: 1px solid #37475a;
+        }
+
+        .chev {
+            width: 5px;
+            height: 5px;
+            border-right: 2px solid #879596;
+            border-bottom: 2px solid #879596;
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .deliver-strip b {
+            font-weight: 700;
+        }
+
+        .hero-wrap {
+            position: relative;
+            margin: 0px 10px;
+        }
+
+        .hero-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .hero-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hero-slide {
+            flex: 0 2 100%;
+            scroll-snap-align: start;
+            position: relative;
+            margin: 7px 2px;
+        }
+
+        .hero-slide img,
+        .hero-slide video {
+            width: 230px;
+            height: 367px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+        }
+
+
+        .hero-caption {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            font-weight: 800;
+            font-size: 22px;
+            color: #0e0d0d;
+            line-height: 1;
+        }
+
+        .hero-caption p {
+            font-size: 13px;
+            font-weight: 100;
+            line-height: 2;
+        }
+
+
+        .signin-panel {
+            background: #fff;
+            padding: 5px 16px;
+            text-align: center;
+        }
+
+        .signin-panel p {
+            font-size: 21px;
+            justify-self: left;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .btn-signin {
+            display: block;
+            width: 100%;
+            background: #ffd814;
+            border: none;
+            border-radius: 22px;
+            padding: 11px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        .btn-signin:active {
+            background: var(--yellow-dark);
+        }
+
+        .create-account {
+            font-size: 13px;
+            position: absolute;
+            color: var(--link);
+            left: 18px;
+        }
+
+        .section-card {
+            background: #fff;
+            margin: 8px 0;
+            padding: 16px 14px 14px;
+        }
+
+        .section-card h2 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0F1111;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 2px;
+            background: #eee;
+            display: block;
+        }
+
+        .card-item span {
+            font-size: 13px;
+            color: #0F1111;
+        }
+
+        .card-link {
+            font-size: 13px;
+            color: var(--link);
+            font-weight: 400;
+        }
+
+        .card-link:hover,
+        .card-link:active {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        .slider-card {
+            background: #fff;
+            margin: 8px 0;
+            padding: 16px 0 14px;
+        }
+
+        .slider-card h2 {
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 14px 10px;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0 14px;
+            scrollbar-width: none;
+        }
+
+        .slider-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slider-track img {
+            height: 140px;
+            width: 140px;
+            object-fit: cover;
+            border-radius: 2px;
+            flex-shrink: 0;
+            background: #eee;
+        }
+
+        .back-to-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            text-align: center;
+            background: #37475a;
+            color: #fff;
+            padding: 14px;
+            font-size: 13px;
+            letter-spacing: .3px;
+            margin-top: 10px;
+        }
+
+        .back-to-top:active {
+            background: #42566c;
+        }
+
+        .back-to-top svg {
+            stroke: #fff;
+        }
+
+        footer {
+            background: var(--navy2);
+            color: #fff;
+        }
+
+        .footer-linkcols {
+            display: flex;
+            gap: 20px;
+            padding: 26px 20px 30px;
+        }
+
+        .footer-linkcols ul {
+            list-style: none;
+            flex: 1;
+        }
+
+        .footer-linkcols ul li {
+            margin-bottom: 26px;
+        }
+
+        .footer-linkcols ul li a {
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+
+        .footer-linkcols ul li a:active {
+            text-decoration: underline;
+        }
+
+        .footer-tertiary {
+            background: #131a22;
+            padding: 26px 20px 10px;
+        }
+
+        .footer-settings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 30px;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .footer-settings .setting-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-settings img.flag {
+            width: 20px;
+        }
+
+        .already-customer {
+            text-align: center;
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 26px;
+        }
+
+        .already-customer a {
+            text-decoration: underline;
+        }
+
+        .footer-legal {
+            text-align: center;
+            padding: 0 14px 24px;
+            color: #c8c9ca;
+            font-size: 13px;
+        }
+
+        .footer-legal ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 16px;
+            margin-bottom: 10px;
+        }
+
+        .footer-legal a {
+            color: #c8c9ca;
+        }
+
+        .footer-legal a:active {
+            text-decoration: underline;
+        }
+
+        .footer-legal .ads-choice {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .copyright {
+            color: #8f9296;
+            margin-top: 4px;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 80%;
+            max-width: 340px;
+            background: #fff;
+            z-index: 100;
+            transform: translateX(-100%);
+            transition: transform .25s ease;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .side-menu.open {
+            transform: translateX(0);
+        }
+
+        .side-menu-header {
+            background: var(--navy2);
+            color: #fff;
+            padding: 18px 20px 24px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .side-menu-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 34px;
+        }
+
+        .side-menu-top svg {
+            stroke: #fff;
+            flex-shrink: 0;
+        }
+
+        .side-menu-title .browse-label {
+            display: block;
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .side-menu-title .amazon-label {
+            display: block;
+            font-size: 33px;
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        .side-menu-close-fixed {
+            position: fixed;
+            top: 82px;
+            left: min(80vw, 340px);
+            transform: translateX(-50%);
+            z-index: 101;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: none;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, .9)) drop-shadow(0 0 1px rgba(0, 0, 0, .4));
+        }
+
+        .side-menu-close-fixed.open {
+            display: block;
+        }
+
+        .side-menu-body {
+            background: #fff;
+            flex: 1;
+        }
+
+        .side-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+            font-size: 21px;
+            font-weight: 700;
+            color: #0F1111;
+            border-bottom: 8px solid #e9e9e9;
+        }
+
+        .side-row:active {
+            background: #f5f5f5;
+        }
+
+        .side-row svg {
+            stroke: #0F1111;
+            flex-shrink: 0;
+        }
+
+        .side-departments {
+            padding: 18px 20px 32px;
+        }
+
+        .side-departments h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0F1111;
+        }
+
+        .dept-link {
+            display: block;
+            padding: 12px 0;
+            font-size: 17px;
+            font-weight: 400;
+            color: #0F1111;
+        }
+
+        .dept-link.see-all {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dept-link.see-all svg {
+            stroke: #767676;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-header">
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+                stroke-linecap="round">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+        </button>
+        <div class="logo"><svg width="90px" height="70px" viewBox="163.5 163.50000000000003 285 285"
+                xmlns="http://www.w3.org/2000/svg">
+                <g clip-rule="evenodd" fill-rule="evenodd">
+                    <path
+                        d="m340.3 330.2c-16.5 12.2-40.5 18.7-61.2 18.7-29 0-55-10.7-74.8-28.5-1.5-1.4-.2-3.3 1.7-2.2 21.3 12.4 47.6 19.8 74.8 19.8 18.3 0 38.5-3.8 57.1-11.7 2.8-1.1 5.1 1.9 2.4 3.9z"
+                        fill="#f90" />
+                    <path
+                        d="m347.2 322.3c-2.1-2.7-14-1.3-19.3-.6-1.6.2-1.9-1.2-.4-2.2 9.5-6.7 25-4.7 26.8-2.5s-.5 17.8-9.4 25.2c-1.4 1.1-2.7.5-2.1-1 2-5 6.5-16.1 4.4-18.9z"
+                        fill="#f90" />
+                    <path
+                        d="m328.2 272.5v-6.5c0-1 .7-1.6 1.6-1.6h29c.9 0 1.7.7 1.7 1.6v5.5c0 .9-.8 2.1-2.2 4.1l-15 21.4c5.6-.1 11.5.7 16.5 3.5 1.1.6 1.4 1.6 1.5 2.5v6.9c0 1-1 2.1-2.1 1.5-8.9-4.7-20.8-5.2-30.6.1-1 .5-2.1-.5-2.1-1.5v-6.6c0-1 0-2.8 1.1-4.4l17.4-24.9h-15.1c-.9 0-1.7-.7-1.7-1.6zm-105.7 40.3h-8.8c-.8-.1-1.5-.7-1.6-1.5v-45.2c0-.9.8-1.6 1.7-1.6h8.2c.9 0 1.5.7 1.6 1.5v5.9h.2c2.1-5.7 6.2-8.4 11.6-8.4 5.5 0 9 2.7 11.4 8.4 2.1-5.7 7-8.4 12.2-8.4 3.7 0 7.7 1.5 10.2 5 2.8 3.8 2.2 9.3 2.2 14.2v28.6c0 .9-.8 1.6-1.7 1.6h-8.7c-.9-.1-1.6-.8-1.6-1.6v-24c0-1.9.2-6.7-.2-8.5-.7-3-2.6-3.9-5.2-3.9-2.1 0-4.4 1.4-5.3 3.7s-.8 6.1-.8 8.7v24c0 .9-.8 1.6-1.7 1.6h-8.8c-.9-.1-1.6-.8-1.6-1.6v-24c0-5 .8-12.5-5.4-12.5-6.3 0-6.1 7.2-6.1 12.5v24c-.1.8-.8 1.5-1.8 1.5zm163-49.3c13.1 0 20.2 11.2 20.2 25.5 0 13.8-7.8 24.8-20.2 24.8-12.8 0-19.8-11.2-19.8-25.2-.1-14.1 7-25.1 19.8-25.1zm0 9.3c-6.5 0-6.9 8.9-6.9 14.4s-.1 17.3 6.8 17.3c6.8 0 7.2-9.5 7.2-15.3 0-3.8-.2-8.4-1.3-12-1-3.2-3-4.4-5.8-4.4zm37.1 40h-8.8c-.9-.1-1.6-.8-1.6-1.6v-45.3c.1-.8.8-1.5 1.7-1.5h8.2c.8 0 1.4.6 1.6 1.3v6.9h.2c2.5-6.2 5.9-9.1 12-9.1 3.9 0 7.8 1.4 10.3 5.3 2.3 3.6 2.3 9.7 2.3 14.1v28.5c-.1.8-.8 1.4-1.7 1.4h-8.8c-.8-.1-1.5-.7-1.6-1.4v-24.6c0-5 .6-12.2-5.5-12.2-2.1 0-4.1 1.4-5.1 3.6-1.2 2.8-1.4 5.5-1.4 8.6v24.4c-.1.9-.9 1.6-1.8 1.6zm-117.5-21.6c0 3.4.1 6.3-1.6 9.4-1.4 2.5-3.6 4-6.1 4-3.4 0-5.4-2.6-5.4-6.4 0-7.5 6.7-8.9 13.1-8.9zm8.9 21.5c-.6.5-1.4.6-2.1.2-2.9-2.4-3.5-3.6-5.1-5.9-4.8 4.9-8.3 6.4-14.5 6.4-7.4 0-13.2-4.6-13.2-13.7 0-7.2 3.9-12 9.4-14.4 4.8-2.1 11.5-2.5 16.6-3.1v-1.1c0-2.1.2-4.6-1.1-6.4-1.1-1.6-3.1-2.3-4.9-2.3-3.4 0-6.4 1.7-7.1 5.3-.2.8-.7 1.6-1.5 1.6l-8.5-.9c-.7-.2-1.5-.7-1.3-1.8 2-10.4 11.3-13.5 19.7-13.5 4.3 0 9.9 1.1 13.3 4.4 4.3 4 3.9 9.4 3.9 15.2v13.7c0 4.1 1.7 5.9 3.3 8.2.6.8.7 1.8 0 2.3-1.9 1.5-5.1 4.3-6.9 5.8zm-124.4-21.5c0 3.4.1 6.3-1.6 9.4-1.4 2.5-3.6 4-6.1 4-3.4 0-5.4-2.6-5.4-6.4 0-7.5 6.7-8.9 13.1-8.9zm8.8 21.5c-.6.5-1.4.6-2.1.2-2.9-2.4-3.5-3.6-5.1-5.9-4.8 4.9-8.3 6.4-14.5 6.4-7.4 0-13.2-4.6-13.2-13.7 0-7.2 3.9-12 9.4-14.4 4.8-2.1 11.5-2.5 16.6-3.1v-1.1c0-2.1.2-4.6-1.1-6.4-1.1-1.6-3.1-2.3-4.9-2.3-3.4 0-6.4 1.7-7.1 5.3-.2.8-.7 1.6-1.5 1.6l-8.5-.9c-.7-.2-1.5-.7-1.3-1.8 2-10.4 11.3-13.5 19.7-13.5 4.3 0 9.9 1.1 13.3 4.4 4.3 4 3.9 9.4 3.9 15.2v13.7c0 4.1 1.7 5.9 3.3 8.2.6.8.7 1.8 0 2.3-1.9 1.5-5.1 4.3-6.9 5.8z"
+                        fill="#fff" />
+                </g>
+            </svg></div>
+        <div class="spacer"></div>
+        <button class="icon-btn" aria-label="Sign in">
+            <div>
+                <p>Sign in > </p>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+            </svg>
+        </button>
+        <button class="icon-btn cart-wrap" aria-label="Cart">
+            <svg fill="#000000" width="29px" height="36px" viewBox="0 0 24 24" id="cart-remove" data-name="Flat Line"
+                xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
+                <line id="primary-upstroke" x1="10.95" y1="20.5" x2="11.05" y2="20.5"
+                    style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5;">
+                </line>
+                <line id="primary-upstroke-2" data-name="primary-upstroke" x1="16.95" y1="20.5" x2="17.05" y2="20.5"
+                    style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5;">
+                </line>
+                <text id="primary-zero" x="14" y="8" text-anchor="middle" dominant-baseline="middle"
+                    style="font-size:6px; font-family:sans-serif; fill: #ff9900;">0</text>
+                <path id="primary-2" data-name="primary"
+                    d="M3,3H5.2a1,1,0,0,1,1,.78L8.82,15.22a1,1,0,0,0,1,.78h8.42a1,1,0,0,0,1-.76L21,8"
+                    style="fill: none; stroke: rgb(255, 255, 255); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+
+    <div class="search-row">
+        <div class="search-bar">
+            <input type="text" placeholder="Search Amazon">
+            <button aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <nav class="nav-strip">
+        <a href="#">Video</a>
+        <a href="#">Deals</a>
+        <a href="#">Basics</a>
+        <a href="#">Livestreams</a>
+        <a href="#">Books</a>
+        <a href="#">Fashion</a>
+        <a href="#">Electronics</a>
+    </nav>
+
+
+    <div class="deliver-strip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+        </svg>
+        Deliver to Pakistan
+        <span class="chev"></span>
+
+    </div>
+
+    <div class="hero-wrap">
+        <div class="hero-track" id="heroTrack">
+            <div class="hero-slide">
+
+                <div class="hero-caption" style="color: rgb(246, 246, 250);">
+                    <p>Shop Back to School</p>
+                    Shop kitchen<br>must-haves
+                </div>
+                <img src="https://m.media-amazon.com/images/I/61Gq1u-jXoL._SX855_.jpg" alt="Kitchen appliances">
+            </div>
+
+            <div class="hero-slide">
+                <div class="hero-caption">Must-Haves for<br>Every Student
+                    <p>Backpack Picks</p>
+                </div>
+                <video src="https://m.media-amazon.com/images/I/A122S2-c0TL.mp4" alt="Home office" autoplay muted
+                    loop></video>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-caption">Shop Kitchen<br>must-haves</div>
+                <img src="https://m.media-amazon.com/images/I/51l7ZOsRo7L._SX855_.jpg" alt="Back to school">
+            </div>
+            <div class="hero-slide">
+                <div class="hero-caption">
+                    <p>Shop Back to School</p>
+                    Organize<br>your space <br> under USD 40
+                </div>
+                <img src="https://m.media-amazon.com/images/I/61xlxmAL4nL._SX855_.jpg" alt="Back to school">
+            </div>
+            <div class="hero-slide">
+                <div class="hero-caption">Shop all<br>things beauty </div>
+                <img src="https://m.media-amazon.com/images/I/61Ld77LHXQL._SX855_.jpg" alt="Back to school">
+            </div>
+            <div class="hero-slide">
+                <div class="hero-caption">Start looking<br>sharp </div>
+                <img src="https://m.media-amazon.com/images/I/61R7G24e7dL._SX855_.jpg" alt="Back to school">
+            </div>
+        </div>
+        <div class="hero-dots" id="heroDots">
+            <span class="active"></span><span></span><span></span>
+        </div>
+    </div>
+
+    <div class="signin-panel">
+        <p>Sign in for the best experience</p>
+        <button class="btn-signin">Sign in securely</button>
+        <a href="#" class="create-account">Create an account</a>
+    </div>
+
+    <main id="categorySections"></main>
+
+    <div class="slider-card">
+        <h2>Best Sellers in Clothing, Shoes &amp; Jewelry</h2>
+        <div class="slider-track" id="slider1"></div>
+    </div>
+    <div class="slider-card">
+        <h2>Top Sellers in Toys for You</h2>
+        <div class="slider-track" id="slider2"></div>
+    </div>
+
+    <a href="#top" class="back-to-top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4">
+            <polyline points="6 15 12 9 18 15" />
+        </svg>
+        TOP OF PAGE
+    </a>
+
+    <footer>
+        <div class="footer-linkcols">
+            <ul>
+                <li><a href="#">Amazon.com</a></li>
+                <li><a href="#">Your Lists</a></li>
+                <li><a href="#">Gift Cards</a></li>
+                <li><a href="#">Find a Gift</a></li>
+                <li><a href="#">Browsing History</a></li>
+                <li><a href="#">Your Returns</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Your Orders</a></li>
+                <li><a href="#">Amazon Live</a></li>
+                <li><a href="#">Registry &amp; Gift List</a></li>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Sell products on Amazon</a></li>
+                <li><a href="#">Recalls and Product Safety Alerts</a></li>
+                <li><a href="#">Customer Service</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-tertiary">
+            <div class="footer-settings">
+                <div class="setting-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+                    </svg>
+                    <span>English</span>
+                </div>
+                <div class="setting-item">
+                    <strong>PKR</strong>
+                    <span>Pakistani Rupee</span>
+                </div>
+                <div class="setting-item">
+                    <img class="flag" src="https://flagcdn.com/w40/us.png" alt="US flag">
+                    <span>United States</span>
+                </div>
+            </div>
+
+            <p class="already-customer">Already a customer? <a href="#">Sign in</a></p>
+
+            <div class="footer-legal">
+                <ul>
+                    <li><a href="#">Conditions of Use</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Consumer Health Data Privacy Disclosure</a></li>
+                    <li><a href="#" class="ads-choice">Your Ads Privacy Choices <span>☑️</span></a></li>
+                </ul>
+                <div class="copyright">© 1996-2026, Amazon.com, Inc. or its affiliates</div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <button class="side-menu-close-fixed" id="closeMenu" aria-label="Close menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4">
+            <line x1="5" y1="5" x2="19" y2="19" />
+            <line x1="19" y1="5" x2="5" y2="19" />
+        </svg>
+    </button>
+
+    <nav class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            <div class="side-menu-top">
+                <span>Sign in</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+                </svg>
+            </div>
+            <div class="side-menu-title">
+                <span class="browse-label">Browse</span>
+                <span class="amazon-label">Amazon</span>
+            </div>
+        </div>
+
+        <div class="side-menu-body">
+            <a href="#" class="side-row">
+                Amazon Home
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F1111" stroke-width="2">
+                    <path d="M3 11.5 12 4l9 7.5" />
+                    <path d="M5 10v10h14V10" />
+                </svg>
+            </a>
+            <a href="#" class="side-row">Trending</a>
+
+            <div class="side-departments">
+                <h3>Top Departments</h3>
+                <a href="#" class="dept-link">Home</a>
+                <a href="#" class="dept-link">Health &amp; Household</a>
+                <a href="#" class="dept-link">Books</a>
+                <a href="#" class="dept-link">PC</a>
+                <a href="#" class="dept-link see-all">
+                    See all
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Data for category sections (title, link label, [ [img,label],[img,label] ])
+        const sections = [
+            {
+                title: "Plug in with your electronics", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/417NhPd56zL._SR420,420_.jpg", "Headphones"],
+                ["https://m.media-amazon.com/images/I/41dMYqsSuGL._SR420,420_.jpg", "Tablets"],
+                ["https://m.media-amazon.com/images/I/41gk0-eoy4L._SR420,420_.jpg", "Gaming"],
+                ["https://m.media-amazon.com/images/I/41uuEMle6TL._SR420,420_.jpg", "Speakers"]]
+            },
+            {
+                title: "Score the top PCs & Accessories", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/31aw+nYkUmL._SR420,420_.jpg", "Desktops"], 
+                        ["https://m.media-amazon.com/images/I/31hqkoNqvTL._SR420,420_.jpg", "Laptops"], 
+                        ["https://m.media-amazon.com/images/I/217Arq+nObL._SR420,420_.jpg", "Hard Drives"], 
+                        ["https://m.media-amazon.com/images/I/312z6VjcSmL._SR420,420_.jpg", "PC Accessories"]]
+            },
+            {
+                title: "Gear up to get fit", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/41CutKsrzNL._SR420,420_.jpg", "Clothing"], 
+                        ["https://m.media-amazon.com/images/I/41RKKF01YxL._SR420,420_.jpg", "Trackers"], 
+                        ["https://m.media-amazon.com/images/I/41MjMjLh9BL._SR420,420_.jpg", "Equipment"], 
+                        ["https://m.media-amazon.com/images/I/41idnUIEIZL._SR420,420_.jpg", "Deals"]]
+            },
+            {
+                title: "Apparel under $25", link: "Shop all",
+                items: [["https://m.media-amazon.com/images/I/41DNYos4L1L._SR420,420_.jpg", "Women"], 
+                        ["https://m.media-amazon.com/images/I/31-zpA1B2zL._SR420,420_.jpg", "Men"], 
+                        ["https://m.media-amazon.com/images/I/41J+KoaCycL._SR420,420_.jpg", "Girls"], 
+                        ["https://m.media-amazon.com/images/I/31YRD7rRprL._SR420,420_.jpg", "Boys"]]
+            },
+            {
+                title: "Fantastic Finds for Home", link: "See more",
+                items: [["https://m.media-amazon.com/images/I/41opB3I6bHL._SR420,420_.jpg", "Kitchen"], 
+                        ["https://m.media-amazon.com/images/I/31zR9dINh6L._SR420,420_.jpg", "Home Decor"], 
+                        ["https://m.media-amazon.com/images/I/41bvMGlDk4L._SR420,420_.jpg", "Dining"], 
+                        ["https://m.media-amazon.com/images/I/314AasupNAL._SR420,420_.jpg", "Smart Home"]]
+            },
+            {
+                title: "Shine brighter with your fashion faves", link: "Shop more",
+                items: [["https://m.media-amazon.com/images/I/31iAfM94Q1L._SR420,420_.jpg", "Jewelry"], 
+                        ["https://m.media-amazon.com/images/I/41RsxdVi8QL._SR420,420_.jpg", "Handbags"], 
+                        ["https://m.media-amazon.com/images/I/41wBvSYrvWL._SR420,420_.jpg", "Footwear"], 
+                        ["https://m.media-amazon.com/images/I/41Tsj3W9JHL._SR420,420_.jpg", "Beauty"]]
+            },
+            {
+                title: "Level up your PC here", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/41SeoNqumwL._SR420,420_.jpg", "Laptops"], 
+                        ["https://m.media-amazon.com/images/I/41hls0IW3XL._SR420,420_.jpg", "PCs"], 
+                        ["https://m.media-amazon.com/images/I/41DUMIpCRRL._SR420,420_.jpg", "Hard Drives"], 
+                        ["https://m.media-amazon.com/images/I/410RcCBLHIL._SR420,420_.jpg", "Monitor"]]
+            },
+            {
+                title: "Unveil your radiance", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/41+i4d+1YXL._SR420,420_.jpg", "Hair Care"], 
+                        ["https://m.media-amazon.com/images/I/4115ssxY8RL._SR420,420_.jpg", "Fragrances"], 
+                        ["https://m.media-amazon.com/images/I/51F8Stay1iL._SR420,420_.jpg", "Make-up"], 
+                        ["https://m.media-amazon.com/images/I/41hBTWbTOvL._SR420,420_.jpg", "Skin Care"]]
+            },
+            {
+                title: "Fashion trends in Shoes", link: "Shop all",
+                items: [["https://m.media-amazon.com/images/I/41yqgtOqxPL._SR420,420_.jpg", "Women's"], 
+                        ["https://m.media-amazon.com/images/I/41wfXsKdqEL._SR420,420_.jpg", "Men's"], 
+                        ["https://m.media-amazon.com/images/I/41-zOL2WhXL._SR420,420_.jpg", "Kids"], 
+                        ["https://m.media-amazon.com/images/I/4103VPrZvIL._SR420,420_.jpg", "All shoes"]]
+            },
+            {
+                title: "Home harmony", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/41dEpCmTRFL._SR420,420_.jpg", "Kitchen essentials"], 
+                        ["https://m.media-amazon.com/images/I/41cXdDKGU6L._SR420,420_.jpg", "Home comfort"], 
+                        ["https://m.media-amazon.com/images/I/41EvbQ64I2L._SR420,420_.jpg", "Decorate with elegance"], 
+                        ["https://m.media-amazon.com/images/I/41hJC3LJ2aL._SR420,420_.jpg", "Light it Right"]]
+            },
+            {
+                title: "Shoes Under $50", link: "Shop all",
+                items: [["https://m.media-amazon.com/images/I/31U967D6S3L._SR420,420_.jpg", "Women's"], 
+                        ["https://m.media-amazon.com/images/I/31Wut-0nWqL._SR420,420_.jpg", "Men's"], 
+                        ["https://m.media-amazon.com/images/I/31JVbBrAgDL._SR420,420_.jpg", "Girls"], 
+                        ["https://m.media-amazon.com/images/I/41DEKPASTNL._SR420,420_.jpg", "Boys"]]
+            },
+            {
+                title: "What you need for furry friends", link: "Shop now",
+                items: [["https://m.media-amazon.com/images/I/41eLkFePVUL._SR420,420_.jpg", "Small Pets"], 
+                        ["https://m.media-amazon.com/images/I/41OERaEZuaL._SR420,420_.jpg", "Cats"], 
+                        ["https://m.media-amazon.com/images/I/410BX1Aby0L._SR420,420_.jpg", "Dogs"],
+                        ["https://m.media-amazon.com/images/I/4172LJHm7gL._SR420,420_.jpg", "Deals"]]
+            },
+            {
+                title: "Video games & accessories", link: "Explore now",
+                items: [["https://m.media-amazon.com/images/I/21HndQWZivL._SR200,200_.jpg", "Xbox controllers"], 
+                        ["https://m.media-amazon.com/images/I/31L8hlUOKfL._SR200,200_.jpg", "Nintendo"], 
+                        ["https://m.media-amazon.com/images/I/21+Ccbv5f5L._SR200,200_.jpg", "VR headsets"], 
+                        ["https://m.media-amazon.com/images/I/21DOO2U+rQL._SR200,200_.jpg", "PS5 accessories"]]
+            },
+            {
+                title: "Have more fun with the family", link: "See more",
+                items: [["https://m.media-amazon.com/images/I/31uBBG+KvtL._SR420,420_.jpg", "Outdoor Play Sets"], 
+                        ["https://m.media-amazon.com/images/I/31QJz8+ereL._SR420,420_.jpg", "Learning Toys"], 
+                        ["https://m.media-amazon.com/images/I/310Ke5y4pBL._SR420,420_.jpg", "Action Figures"], 
+                        ["https://m.media-amazon.com/images/I/416Kr1IKmgL._SR420,420_.jpg", "Pretend Play Toys"]]
+            },
+        ];
+
+        const container = document.getElementById('categorySections');
+        sections.forEach(sec => {
+            const card = document.createElement('div');
+            card.className = 'section-card';
+            const itemsHTML = sec.items.map(([seed, label]) => `
+      <div class="card-item">
+        <img src="${seed}" alt="${label}" loading="lazy">
+        <span>${label}</span>
+      </div>`).join('');
+            card.innerHTML = `
+      <h2>${sec.title}</h2>
+      <div class="card-grid">${itemsHTML}</div>
+      <a href="#" class="card-link">${sec.link}</a>
+    `;
+            container.appendChild(card);
+        });
+
+        //Product sliders 
+
+         const slides = [
+            { slider1:[["https://picsum.photos/seed/fashion1/200/200"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                    ]
+            },
+            { slider2:[["link"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                       ["link"]
+                    ]
+            }
+         ];
+        function fillSlider(id, seedPrefix) {
+            const track = document.getElementById(id);
+            let html = '';
+            slides.forEach(element => {
+                
+                html += `<img src="https://picsum.photos/seed/${seedPrefix}${i}/200/200" alt="Product" loading="lazy">`;
+                track.innerHTML = html;
+            });
+            }
+        
+        fillSlider('slider1', 'fashion');
+        fillSlider('slider2', 'toy');
+
+        //Hero carousel autoplay + dots 
+        const heroTrack = document.getElementById('heroTrack');
+        const dots = document.querySelectorAll('#heroDots span');
+        let heroIndex = 0;
+        function getSlideWidth() {
+            const slide = heroTrack.children[0];
+            const style = getComputedStyle(slide);
+            return slide.getBoundingClientRect().width
+                + parseFloat(style.marginLeft)
+                + parseFloat(style.marginRight);
+        }
+
+        function goToHero(i) {
+            heroIndex = (i + dots.length) % dots.length;
+            const slideWidth = getSlideWidth();
+            heroTrack.scrollTo({ left: slideWidth * heroIndex, behavior: 'smooth' });
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === heroIndex));
+        }
+        heroTrack.addEventListener('scroll', () => {
+            const slideWidth = getSlideWidth();
+            const i = Math.round(heroTrack.scrollLeft / slideWidth);
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        });
+        setInterval(() => goToHero(heroIndex + 1), 8000);
+
+        //Side menu 
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+        const overlay = document.getElementById('overlay');
+        function openSideMenu() {
+            sideMenu.classList.add('open');
+            overlay.classList.add('active');
+            closeMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSideMenu() {
+            sideMenu.classList.remove('open');
+            overlay.classList.remove('active');
+            closeMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        menuBtn.addEventListener('click', openSideMenu);
+        closeMenu.addEventListener('click', closeSideMenu);
+        overlay.addEventListener('click', closeSideMenu);
+    </script>
+</body>
+
+</html>
