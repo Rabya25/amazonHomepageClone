@@ -499,6 +499,7 @@
             padding: 18px 20px 24px;
             position: relative;
             flex-shrink: 0;
+            height: 113px;
         }
 
         .side-menu-top {
@@ -518,32 +519,35 @@
 
         .side-menu-title .browse-label {
             display: block;
+            position: absolute;
             font-size: 19px;
             font-weight: 700;
+            top: 43px;
             line-height: 1.2;
         }
 
         .side-menu-title .amazon-label {
             display: block;
-            font-size: 33px;
+            font-size: 29px;
+            position: absolute;
+            top: 63px;
             font-weight: 400;
             line-height: 1.15;
         }
 
-        .side-menu-close-fixed {
+        .side-menu-close {
             position: fixed;
-            top: 82px;
-            left: min(80vw, 340px);
+            top: 10px;
+            left: 316px;
             transform: translateX(-50%);
             z-index: 101;
             background: none;
             border: none;
             cursor: pointer;
             display: none;
-            filter: drop-shadow(0 0 3px rgba(255, 255, 255, .9)) drop-shadow(0 0 1px rgba(0, 0, 0, .4));
         }
 
-        .side-menu-close-fixed.open {
+        .side-menu-close.open {
             display: block;
         }
 
@@ -556,11 +560,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 20px;
-            font-size: 21px;
+            padding: 14px 17px;
+            font-size: 18px;
             font-weight: 700;
             color: #0F1111;
-            border-bottom: 8px solid #e9e9e9;
+            border-bottom: 4px solid #e9e9e9;
         }
 
         .side-row:active {
@@ -743,15 +747,6 @@
 
     <main id="categorySections"></main>
 
-    <div class="slider-card">
-        <h2>Best Sellers in Clothing, Shoes &amp; Jewelry</h2>
-        <div class="slider-track" id="slider1"></div>
-    </div>
-    <div class="slider-card">
-        <h2>Top Sellers in Toys for You</h2>
-        <div class="slider-track" id="slider2"></div>
-    </div>
-
     <a href="#top" class="back-to-top">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4">
             <polyline points="6 15 12 9 18 15" />
@@ -815,8 +810,8 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <button class="side-menu-close-fixed" id="closeMenu" aria-label="Close menu">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4">
+    <button class="side-menu-close" id="closeMenu" aria-label="Close menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4">
             <line x1="5" y1="5" x2="19" y2="19" />
             <line x1="19" y1="5" x2="5" y2="19" />
         </svg>
@@ -875,94 +870,94 @@
             },
             {
                 title: "Score the top PCs & Accessories", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/31aw+nYkUmL._SR420,420_.jpg", "Desktops"], 
-                        ["https://m.media-amazon.com/images/I/31hqkoNqvTL._SR420,420_.jpg", "Laptops"], 
-                        ["https://m.media-amazon.com/images/I/217Arq+nObL._SR420,420_.jpg", "Hard Drives"], 
-                        ["https://m.media-amazon.com/images/I/312z6VjcSmL._SR420,420_.jpg", "PC Accessories"]]
+                items: [["https://m.media-amazon.com/images/I/31aw+nYkUmL._SR420,420_.jpg", "Desktops"],
+                ["https://m.media-amazon.com/images/I/31hqkoNqvTL._SR420,420_.jpg", "Laptops"],
+                ["https://m.media-amazon.com/images/I/217Arq+nObL._SR420,420_.jpg", "Hard Drives"],
+                ["https://m.media-amazon.com/images/I/312z6VjcSmL._SR420,420_.jpg", "PC Accessories"]]
             },
             {
                 title: "Gear up to get fit", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/41CutKsrzNL._SR420,420_.jpg", "Clothing"], 
-                        ["https://m.media-amazon.com/images/I/41RKKF01YxL._SR420,420_.jpg", "Trackers"], 
-                        ["https://m.media-amazon.com/images/I/41MjMjLh9BL._SR420,420_.jpg", "Equipment"], 
-                        ["https://m.media-amazon.com/images/I/41idnUIEIZL._SR420,420_.jpg", "Deals"]]
+                items: [["https://m.media-amazon.com/images/I/41CutKsrzNL._SR420,420_.jpg", "Clothing"],
+                ["https://m.media-amazon.com/images/I/41RKKF01YxL._SR420,420_.jpg", "Trackers"],
+                ["https://m.media-amazon.com/images/I/41MjMjLh9BL._SR420,420_.jpg", "Equipment"],
+                ["https://m.media-amazon.com/images/I/41idnUIEIZL._SR420,420_.jpg", "Deals"]]
             },
             {
                 title: "Apparel under $25", link: "Shop all",
-                items: [["https://m.media-amazon.com/images/I/41DNYos4L1L._SR420,420_.jpg", "Women"], 
-                        ["https://m.media-amazon.com/images/I/31-zpA1B2zL._SR420,420_.jpg", "Men"], 
-                        ["https://m.media-amazon.com/images/I/41J+KoaCycL._SR420,420_.jpg", "Girls"], 
-                        ["https://m.media-amazon.com/images/I/31YRD7rRprL._SR420,420_.jpg", "Boys"]]
+                items: [["https://m.media-amazon.com/images/I/41DNYos4L1L._SR420,420_.jpg", "Women"],
+                ["https://m.media-amazon.com/images/I/31-zpA1B2zL._SR420,420_.jpg", "Men"],
+                ["https://m.media-amazon.com/images/I/41J+KoaCycL._SR420,420_.jpg", "Girls"],
+                ["https://m.media-amazon.com/images/I/31YRD7rRprL._SR420,420_.jpg", "Boys"]]
             },
             {
                 title: "Fantastic Finds for Home", link: "See more",
-                items: [["https://m.media-amazon.com/images/I/41opB3I6bHL._SR420,420_.jpg", "Kitchen"], 
-                        ["https://m.media-amazon.com/images/I/31zR9dINh6L._SR420,420_.jpg", "Home Decor"], 
-                        ["https://m.media-amazon.com/images/I/41bvMGlDk4L._SR420,420_.jpg", "Dining"], 
-                        ["https://m.media-amazon.com/images/I/314AasupNAL._SR420,420_.jpg", "Smart Home"]]
+                items: [["https://m.media-amazon.com/images/I/41opB3I6bHL._SR420,420_.jpg", "Kitchen"],
+                ["https://m.media-amazon.com/images/I/31zR9dINh6L._SR420,420_.jpg", "Home Decor"],
+                ["https://m.media-amazon.com/images/I/41bvMGlDk4L._SR420,420_.jpg", "Dining"],
+                ["https://m.media-amazon.com/images/I/314AasupNAL._SR420,420_.jpg", "Smart Home"]]
             },
             {
                 title: "Shine brighter with your fashion faves", link: "Shop more",
-                items: [["https://m.media-amazon.com/images/I/31iAfM94Q1L._SR420,420_.jpg", "Jewelry"], 
-                        ["https://m.media-amazon.com/images/I/41RsxdVi8QL._SR420,420_.jpg", "Handbags"], 
-                        ["https://m.media-amazon.com/images/I/41wBvSYrvWL._SR420,420_.jpg", "Footwear"], 
-                        ["https://m.media-amazon.com/images/I/41Tsj3W9JHL._SR420,420_.jpg", "Beauty"]]
+                items: [["https://m.media-amazon.com/images/I/31iAfM94Q1L._SR420,420_.jpg", "Jewelry"],
+                ["https://m.media-amazon.com/images/I/41RsxdVi8QL._SR420,420_.jpg", "Handbags"],
+                ["https://m.media-amazon.com/images/I/41wBvSYrvWL._SR420,420_.jpg", "Footwear"],
+                ["https://m.media-amazon.com/images/I/41Tsj3W9JHL._SR420,420_.jpg", "Beauty"]]
             },
             {
                 title: "Level up your PC here", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/41SeoNqumwL._SR420,420_.jpg", "Laptops"], 
-                        ["https://m.media-amazon.com/images/I/41hls0IW3XL._SR420,420_.jpg", "PCs"], 
-                        ["https://m.media-amazon.com/images/I/41DUMIpCRRL._SR420,420_.jpg", "Hard Drives"], 
-                        ["https://m.media-amazon.com/images/I/410RcCBLHIL._SR420,420_.jpg", "Monitor"]]
+                items: [["https://m.media-amazon.com/images/I/41SeoNqumwL._SR420,420_.jpg", "Laptops"],
+                ["https://m.media-amazon.com/images/I/41hls0IW3XL._SR420,420_.jpg", "PCs"],
+                ["https://m.media-amazon.com/images/I/41DUMIpCRRL._SR420,420_.jpg", "Hard Drives"],
+                ["https://m.media-amazon.com/images/I/410RcCBLHIL._SR420,420_.jpg", "Monitor"]]
             },
             {
                 title: "Unveil your radiance", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/41+i4d+1YXL._SR420,420_.jpg", "Hair Care"], 
-                        ["https://m.media-amazon.com/images/I/4115ssxY8RL._SR420,420_.jpg", "Fragrances"], 
-                        ["https://m.media-amazon.com/images/I/51F8Stay1iL._SR420,420_.jpg", "Make-up"], 
-                        ["https://m.media-amazon.com/images/I/41hBTWbTOvL._SR420,420_.jpg", "Skin Care"]]
+                items: [["https://m.media-amazon.com/images/I/41+i4d+1YXL._SR420,420_.jpg", "Hair Care"],
+                ["https://m.media-amazon.com/images/I/4115ssxY8RL._SR420,420_.jpg", "Fragrances"],
+                ["https://m.media-amazon.com/images/I/51F8Stay1iL._SR420,420_.jpg", "Make-up"],
+                ["https://m.media-amazon.com/images/I/41hBTWbTOvL._SR420,420_.jpg", "Skin Care"]]
             },
             {
                 title: "Fashion trends in Shoes", link: "Shop all",
-                items: [["https://m.media-amazon.com/images/I/41yqgtOqxPL._SR420,420_.jpg", "Women's"], 
-                        ["https://m.media-amazon.com/images/I/41wfXsKdqEL._SR420,420_.jpg", "Men's"], 
-                        ["https://m.media-amazon.com/images/I/41-zOL2WhXL._SR420,420_.jpg", "Kids"], 
-                        ["https://m.media-amazon.com/images/I/4103VPrZvIL._SR420,420_.jpg", "All shoes"]]
+                items: [["https://m.media-amazon.com/images/I/41yqgtOqxPL._SR420,420_.jpg", "Women's"],
+                ["https://m.media-amazon.com/images/I/41wfXsKdqEL._SR420,420_.jpg", "Men's"],
+                ["https://m.media-amazon.com/images/I/41-zOL2WhXL._SR420,420_.jpg", "Kids"],
+                ["https://m.media-amazon.com/images/I/4103VPrZvIL._SR420,420_.jpg", "All shoes"]]
             },
             {
                 title: "Home harmony", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/41dEpCmTRFL._SR420,420_.jpg", "Kitchen essentials"], 
-                        ["https://m.media-amazon.com/images/I/41cXdDKGU6L._SR420,420_.jpg", "Home comfort"], 
-                        ["https://m.media-amazon.com/images/I/41EvbQ64I2L._SR420,420_.jpg", "Decorate with elegance"], 
-                        ["https://m.media-amazon.com/images/I/41hJC3LJ2aL._SR420,420_.jpg", "Light it Right"]]
+                items: [["https://m.media-amazon.com/images/I/41dEpCmTRFL._SR420,420_.jpg", "Kitchen essentials"],
+                ["https://m.media-amazon.com/images/I/41cXdDKGU6L._SR420,420_.jpg", "Home comfort"],
+                ["https://m.media-amazon.com/images/I/41EvbQ64I2L._SR420,420_.jpg", "Decorate with elegance"],
+                ["https://m.media-amazon.com/images/I/41hJC3LJ2aL._SR420,420_.jpg", "Light it Right"]]
             },
             {
                 title: "Shoes Under $50", link: "Shop all",
-                items: [["https://m.media-amazon.com/images/I/31U967D6S3L._SR420,420_.jpg", "Women's"], 
-                        ["https://m.media-amazon.com/images/I/31Wut-0nWqL._SR420,420_.jpg", "Men's"], 
-                        ["https://m.media-amazon.com/images/I/31JVbBrAgDL._SR420,420_.jpg", "Girls"], 
-                        ["https://m.media-amazon.com/images/I/41DEKPASTNL._SR420,420_.jpg", "Boys"]]
+                items: [["https://m.media-amazon.com/images/I/31U967D6S3L._SR420,420_.jpg", "Women's"],
+                ["https://m.media-amazon.com/images/I/31Wut-0nWqL._SR420,420_.jpg", "Men's"],
+                ["https://m.media-amazon.com/images/I/31JVbBrAgDL._SR420,420_.jpg", "Girls"],
+                ["https://m.media-amazon.com/images/I/41DEKPASTNL._SR420,420_.jpg", "Boys"]]
             },
             {
                 title: "What you need for furry friends", link: "Shop now",
-                items: [["https://m.media-amazon.com/images/I/41eLkFePVUL._SR420,420_.jpg", "Small Pets"], 
-                        ["https://m.media-amazon.com/images/I/41OERaEZuaL._SR420,420_.jpg", "Cats"], 
-                        ["https://m.media-amazon.com/images/I/410BX1Aby0L._SR420,420_.jpg", "Dogs"],
-                        ["https://m.media-amazon.com/images/I/4172LJHm7gL._SR420,420_.jpg", "Deals"]]
+                items: [["https://m.media-amazon.com/images/I/41eLkFePVUL._SR420,420_.jpg", "Small Pets"],
+                ["https://m.media-amazon.com/images/I/41OERaEZuaL._SR420,420_.jpg", "Cats"],
+                ["https://m.media-amazon.com/images/I/410BX1Aby0L._SR420,420_.jpg", "Dogs"],
+                ["https://m.media-amazon.com/images/I/4172LJHm7gL._SR420,420_.jpg", "Deals"]]
             },
             {
                 title: "Video games & accessories", link: "Explore now",
-                items: [["https://m.media-amazon.com/images/I/21HndQWZivL._SR200,200_.jpg", "Xbox controllers"], 
-                        ["https://m.media-amazon.com/images/I/31L8hlUOKfL._SR200,200_.jpg", "Nintendo"], 
-                        ["https://m.media-amazon.com/images/I/21+Ccbv5f5L._SR200,200_.jpg", "VR headsets"], 
-                        ["https://m.media-amazon.com/images/I/21DOO2U+rQL._SR200,200_.jpg", "PS5 accessories"]]
+                items: [["https://m.media-amazon.com/images/I/21HndQWZivL._SR200,200_.jpg", "Xbox controllers"],
+                ["https://m.media-amazon.com/images/I/31L8hlUOKfL._SR200,200_.jpg", "Nintendo"],
+                ["https://m.media-amazon.com/images/I/21+Ccbv5f5L._SR200,200_.jpg", "VR headsets"],
+                ["https://m.media-amazon.com/images/I/21DOO2U+rQL._SR200,200_.jpg", "PS5 accessories"]]
             },
             {
                 title: "Have more fun with the family", link: "See more",
-                items: [["https://m.media-amazon.com/images/I/31uBBG+KvtL._SR420,420_.jpg", "Outdoor Play Sets"], 
-                        ["https://m.media-amazon.com/images/I/31QJz8+ereL._SR420,420_.jpg", "Learning Toys"], 
-                        ["https://m.media-amazon.com/images/I/310Ke5y4pBL._SR420,420_.jpg", "Action Figures"], 
-                        ["https://m.media-amazon.com/images/I/416Kr1IKmgL._SR420,420_.jpg", "Pretend Play Toys"]]
+                items: [["https://m.media-amazon.com/images/I/31uBBG+KvtL._SR420,420_.jpg", "Outdoor Play Sets"],
+                ["https://m.media-amazon.com/images/I/31QJz8+ereL._SR420,420_.jpg", "Learning Toys"],
+                ["https://m.media-amazon.com/images/I/310Ke5y4pBL._SR420,420_.jpg", "Action Figures"],
+                ["https://m.media-amazon.com/images/I/416Kr1IKmgL._SR420,420_.jpg", "Pretend Play Toys"]]
             },
         ];
 
@@ -985,36 +980,36 @@
 
         //Product sliders 
 
-         const slides = [
-            { slider1:[["https://picsum.photos/seed/fashion1/200/200"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                    ]
-            },
-            { slider2:[["link"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                       ["link"]
-                    ]
-            }
-         ];
-        function fillSlider(id, seedPrefix) {
-            const track = document.getElementById(id);
-            let html = '';
-            slides.forEach(element => {
-                
-                html += `<img src="https://picsum.photos/seed/${seedPrefix}${i}/200/200" alt="Product" loading="lazy">`;
-                track.innerHTML = html;
-            });
-            }
-        
-        fillSlider('slider1', 'fashion');
-        fillSlider('slider2', 'toy');
+        //  const slides = [
+        //     { slider1:[["https://picsum.photos/seed/fashion1/200/200"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //             ]
+        //     },
+        //     { slider2:[["link"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //                ["link"]
+        //             ]
+        //     }
+        //  ];
+        // function fillSlider(id, seedPrefix) {
+        //     const track = document.getElementById(id);
+        //     let html = '';
+        //     slides.forEach(element => {
+
+        //         html += `<img src="https://picsum.photos/seed/${seedPrefix}${i}/200/200" alt="Product" loading="lazy">`;
+        //         track.innerHTML = html;
+        //     });
+        //     }
+
+        // fillSlider('slider1', 'fashion');
+        // fillSlider('slider2', 'toy');
 
         //Hero carousel autoplay + dots 
         const heroTrack = document.getElementById('heroTrack');
